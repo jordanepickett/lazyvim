@@ -1,0 +1,7 @@
+return {
+  "jay-babu/mason-nvim-dap.nvim",
+  dependencies = { "williamboman/mason.nvim", "mfussenegger/nvim-dap" },
+  opts = {
+    ensure_installed = { "node2", "cppdb" }, -- or use vscode-js-debug manually
+  },
+}
