@@ -52,3 +52,5 @@ end)
 vim.keymap.set("n", "<leader>la", ":Laravel artisan<cr>")
 vim.keymap.set("n", "<leader>lr", ":Laravel routes<cr>")
 vim.keymap.set("n", "<leader>lm", ":Laravel related<cr>")
+
+vim.keymap.set("n", "<leader>e", function() vim.diagnostic.open_float(0, {scope="line"}) end, { noremap=true, silent= true })
