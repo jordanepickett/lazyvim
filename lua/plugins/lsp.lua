@@ -12,10 +12,6 @@ return {
 
     -- Setup Mason
     mason.setup()
-    mason_lsp.setup({
-      ensure_installed = { "lua_ls", "ts_ls", "clangd" },
-      automatic_installation = true,
-    })
 
     -- Completion capabilities
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -36,13 +32,17 @@ return {
       vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
     end
 
-    -- Setup servers
-    local servers = { "lua_ls", "ts_ls", "pyright", "clangd" }
-    for _, server in ipairs(servers) do
-      lspconfig[server].setup({
-        on_attach = on_attach,
-        capabilities = capabilities,
-      })
-    end
+    mason_lsp.setup({
+        ensure_installed = { "lua_ls", "clangd" },
+        automatic_installation = true,
+        handlers = {
+            function(server)
+                lspconfig[server].setup({
+                    on_attach = on_attach,
+                    capabilities = capabilities,
+                })
+            end,
+        },
+    })
   end,
 }

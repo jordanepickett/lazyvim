@@ -16,16 +16,5 @@ return {
       },
       automatic_installation = true,
     })
-
-    -- LSP setup
-    local lspconfig = require("lspconfig")
-    local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-    local servers = { "lua_ls", "html", "cssls" }
-    for _, server in ipairs(servers) do
-      lspconfig[server].setup({
-        capabilities = capabilities,
-      })
-    end
   end,
 }
