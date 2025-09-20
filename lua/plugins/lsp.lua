@@ -22,7 +22,7 @@ return {
     end
 
     mason_lsp.setup({
-        ensure_installed = { "lua_ls", "clangd" },
+        ensure_installed = { "lua_ls", "clangd", "ts_ls" },
         automatic_installation = true,
         handlers = {
             function(server)
