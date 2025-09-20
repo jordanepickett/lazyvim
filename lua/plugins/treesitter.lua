@@ -9,6 +9,7 @@ return {
         "c",
         "javascript",
         "typescript",
+        "tsx",
         "python",
         "html",
         "css",
